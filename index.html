@@ -3,64 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>公告测试</title>
+  <title>我的酷炫网站</title>
   <style>
-    body, html {
-      height: 100%;
+    * {
       margin: 0;
-      font-family: sans-serif;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    html, body {
+      height: 100%;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    /* 公告弹窗 */
     .overlay {
       position: fixed;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.8);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 999;
+      animation: fadeIn 1s ease-in-out;
     }
+
     .popup {
       background: white;
-      padding: 20px 30px;
-      border-radius: 10px;
+      color: black;
+      padding: 30px;
+      border-radius: 15px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: popIn 0.4s ease;
     }
+
     .button {
-      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      padding: 12px 28px;
+      border: 2px solid white;
+      border-radius: 25px;
+      font-size: 18px;
       margin-top: 20px;
-      font-size: 16px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
+
+    .button:hover {
+      background-color: white;
+      color: black;
+    }
+
     .main-content {
       display: none;
-      height: 100vh;
-      background: url('https://source.unsplash.com/1600x900/?nature') no-repeat center center/cover;
-      color: white;
+      padding: 80px 20px;
       text-align: center;
-      padding-top: 150px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: slideUp 1s ease-out;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .fadeOut {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
   </style>
 </head>
 <body>
 
+  <!-- 公告弹窗 -->
   <div class="overlay" id="announcement">
     <div class="popup">
       <h2>📢 网站公告</h2>
-      <p>欢迎访问我们的网站。</p>
+      <p>欢迎访问我们的网站！这里是一个带有酷炫动画和内容的网站演示。</p>
       <button class="button" onclick="closePopup()">确认</button>
     </div>
   </div>
 
+  <!-- 主页面内容 -->
   <div class="main-content" id="mainContent">
-    <h1>欢迎来到主界面</h1>
-    <p>这里是网站主内容</p>
+    <h1 class="title">欢迎来到我的酷炫网站</h1>
+    <p class="subtitle">
+      本站旨在展示如何使用纯 HTML + CSS + JS 创建一个带有动画效果、公告弹窗、
+      美观设计的网页。你可以在此添加更多功能，比如导航、介绍页、图像、视频等等。
+    </p>
+    <button class="button" onclick="alert('你点击了功能按钮！')">功能按钮</button>
   </div>
 
   <script>
     function closePopup() {
-      document.getElementById("announcement").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
+      const popup = document.getElementById("announcement");
+      popup.classList.add("fadeOut");
+      setTimeout(() => {
+        popup.style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+      }, 500);
     }
   </script>
 
