@@ -1,98 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于我 - 个人主页</title>
-    <style>
-        body {
-            background-color: yellow; /* 设置背景为黄色 */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        img {
-            border: 2px solid #2c3e50;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        .section {
-            margin: 30px 0;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        a {
-            color: #1e90ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>公告测试</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .main-content {
+      display: none;
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?nature') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding-top: 150px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 个人简介 -->
-        <div class="section">
-            <h1>欢迎来到我的主页！</h1>
-            <p>你好！我是zjh，一位对黄片，开黄腔以及意淫充满热情的人。我特别擅长于用下体控制大脑，欢迎了解我的故事！</p>
-        </div>
 
-        <!-- 关于我 -->
-        <div class="section">
-            <h2>关于我</h2>
-            <p>我目前是一名高一的野生马喽，居住在大龙。我喜欢探索新知识，特别在黄色动作电影方面。我的目标是成为一名优秀的影片制作人</p>
-        </div>
-
-        <!-- 兴趣爱好 -->
-        <div class="section">
-            <h2>兴趣爱好</h2>
-            <ul>
-                <li>玩巨根：我经常会在夜深人静的时候玩耍他，这让我特别满足，这让我在与同学的谈话中占有很大的优势，这让我觉得在别人眼里我懂的很多</li>
-                <li>说到爱好这不得不提一嘴我的抄袭技术</li>
-                <li>考试：这对于我来说简直是小菜一碟，我只需要稍动眼力就可以抄袭到我同桌千辛万苦绞尽脑汁做出来的答案</li>
-                <li>当别人询问我时我当然会毫不犹豫的说这个答案来自我千幸万苦的呃“努力”</li>
-                <li>虽然大考的时候我分数仅有别人的一半但这肯定是我没发挥好的啦</li>
-            </ul>
-        </div>
-
-        <!-- 图片展示 -->
-        <div class="section">
-            <h2>我的照片</h2>
-            <p>这是我的一张照片，猜猜我在哪里？</p>
-            <img src="9da0d36ccd72b15447136325c2dcf5c5.JPG" alt="我的照片" width="300" height="200">
-        </div>
-
-        <!-- 联系方式 -->
-        <div class="section">
-            <h2>联系我</h2>
-             <img src="ef55d12e7d605baa071105647cc387cb.JPG" alt="我的照片" width="300" height="200">
-        </div>
-            <p>如果你想和我交流，可以通过以下方式联系我：</p>
-            <ul>
-                <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-                <li>社交媒体: <a href="https://your-social-media-link">我的主页</a></li>
-            </ul>
-        </div>
+  <div class="overlay" id="announcement">
+    <div class="popup">
+      <h2>📢 网站公告</h2>
+      <p>欢迎访问我们的网站！这里展示了一个美丽的界面和动画。</p>
+      <button class="button" onclick="closePopup()">确认</button>
     </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <h1>欢迎来到主界面</h1>
+    <p>这里是网站主内容</p>
+  </div>
+
+  <script>
+    function closePopup() {
+      document.getElementById("announcement").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
