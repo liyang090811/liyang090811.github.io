@@ -1,145 +1,199 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>我的酷炫网站</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free VPN Public Beta</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    html, body {
-      height: 100%;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: black;
-      color: white;
-    }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+            background: #0b0c1c;
+            color: #fff;
+            position: relative;
+        }
 
-    /* 公告弹窗 */
-    .overlay {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      animation: fadeIn 1s ease-in-out;
-    }
+        /* 粒子背景 */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-    .popup {
-      background: white;
-      color: black;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      animation: popIn 0.4s ease;
-    }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-    .button {
-      background-color: black;
-      color: white;
-      padding: 12px 28px;
-      border: 2px solid white;
-      border-radius: 25px;
-      font-size: 18px;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #1e90ff;
+        }
 
-    .button:hover {
-      background-color: white;
-      color: black;
-    }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #cce0ff;
+        }
 
-    .main-content {
-      display: none;
-      padding: 80px 20px;
-      text-align: center;
-      animation: fadeIn 1s ease-in-out;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .title {
-      font-size: 48px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      animation: slideUp 1s ease-out;
-    }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
 
-    .subtitle {
-      font-size: 20px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto;
-      animation: fadeIn 2s ease-in;
-    }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            flex: 1 1 250px;
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
+        .feature h3 {
+            color: #1e90ff;
+            margin-top: 0;
+        }
 
-    @keyframes popIn {
-      0% { transform: scale(0.6); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+        .cta {
+            text-align: center;
+            margin: 50px 0;
+        }
 
-    @keyframes slideUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+        .cta a {
+            text-decoration: none;
+            background: #1e90ff;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            transition: 0.3s;
+        }
 
-    .fadeOut {
-      animation: fadeOut 0.5s forwards;
-    }
+        .cta a:hover {
+            background: #0d6efd;
+        }
 
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-  </style>
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 1em;
+            color: #ccc;
+        }
+
+        .contact {
+            margin-top: 10px;
+            color: #ffdd57;
+        }
+    </style>
 </head>
 <body>
+    <canvas id="particle-canvas"></canvas>
 
-  <!-- 公告弹窗 -->
-  <div class="overlay" id="announcement">
-    <div class="popup">
-      <h2>welcome back!</h2>
-      <p>here is a secreat world</p>
-      <button class="button" onclick="closePopup()">确认</button>
+    <header>
+        <h1>🚀 Free VPN Public Beta</h1>
+        <p>Secure, fast, and reliable VPN – now free during public testing!</p>
+    </header>
+
+    <div class="container">
+        <section class="features">
+            <div class="feature">
+                <h3>Privacy & Security</h3>
+                <p>Protect your online activities and browse safely with our VPN encryption.</p>
+            </div>
+            <div class="feature">
+                <h3>High-Speed Servers</h3>
+                <p>Enjoy smooth internet access with our optimized Los Angeles servers.</p>
+            </div>
+            <div class="feature">
+                <h3>Free Clean IP</h3>
+                <p>Get a free dedicated IP address during the beta, completely clean and ready to use.</p>
+            </div>
+        </section>
+
+        <div class="cta">
+            <a href="#">Try it Free Now</a>
+        </div>
     </div>
-  </div>
 
-  <!-- 主页面内容 -->
-  <div class="main-content" id="mainContent">
-    <h1 class="title">let's develop more</h1>
-    <p class="subtitle">
-      this is a website for showing my new developments and works,welocome to my world!
-    </p>
-    <button class="button" onclick="alert('you pressed the start button')">start</button>
-  </div>
+    <footer>
+        ⚠️ Note: After the beta phase, a subscription will be required.  
+        <div class="contact">Contact: <a href="mailto:wxliloveyou@outlook.com">wxliloveyou@outlook.com</a></div>
+    </footer>
 
-  <script>
-    function closePopup() {
-      const popup = document.getElementById("announcement");
-      popup.classList.add("fadeOut");
-      setTimeout(() => {
-        popup.style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-      }, 500);
-    }
-  </script>
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
 
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(30,144,255,0.7)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            const numberOfParticles = 100;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+    </script>
 </body>
 </html>
