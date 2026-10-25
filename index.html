@@ -1,335 +1,221 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<meta name="theme-color" content="#ffb6cf">
-
-<title>给最可爱的你 🎂</title>
-
+<meta name="theme-color" content="#ffc5dc">
+<title>臭🐑专属生日惊喜 🎂</title>
 <style>
-
 *{box-sizing:border-box}
-
-:root{--pink:#ff8fb8;--deep:#ff4f91;--cream:#fff8fb}
-
-body{margin:0;min-height:100vh;min-height:100dvh;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(145deg,#ffe4ef,#fff4f8 50%,#f8e5ff);color:#70465a;overflow-x:hidden}
-
+:root{--pink:#ff8db8;--deep:#ef4d91;--text:#79445e}
+html{min-height:100%;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;min-height:100dvh;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:#fff0f6;overflow-x:hidden}
 button,input{font:inherit}
-
-.page{position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 18px}
-
-.card{width:100%;max-width:430px;padding:30px 22px;border:1px solid #ffffffc9;border-radius:28px;background:#ffffffd9;box-shadow:0 18px 55px #e88bb329;text-align:center;backdrop-filter:blur(12px)}
-
-.heart{font-size:48px;animation:heartbeat 1.5s infinite}
-
-h1{font-size:25px;line-height:1.5;margin:12px 0;color:#e9518b}
-
-.subtitle{font-size:14px;color:#b17b94;line-height:1.8;margin-bottom:24px}
-
-input{display:block;width:100%;min-width:0;border:2px solid #ffd2e2;border-radius:16px;padding:15px 14px;outline:none;background:#fffafd;color:#74455b;text-align:center;transition:.2s}
-
-input:focus{border-color:#ff8fb8;box-shadow:0 0 0 4px #ff8fb822}
-
-.submit{display:block;width:100%;margin-top:14px;border:0;border-radius:16px;padding:15px;background:linear-gradient(100deg,#ff91b9,#ff6eaa);color:white;font-weight:700;box-shadow:0 7px 18px #ff8bb54d;cursor:pointer}
-
-.submit:active{transform:scale(.98)}
-
-#error{min-height:24px;margin-top:12px;color:#e9518b;font-size:13px}
-
+button{-webkit-tap-highlight-color:transparent;cursor:pointer}
 .hidden{display:none!important}
-
-#birthday{position:relative;overflow:hidden;min-height:100vh;min-height:100dvh;background:linear-gradient(155deg,#fff0f6,#ffe1ed 48%,#f4dcff)}
-
-.birthday-card{position:relative;z-index:2;width:100%;max-width:460px;margin:auto;padding:28px 22px;text-align:center}
-
+.screen{position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+#home{background:radial-gradient(ellipse at top,#fff 0%,#ffe6f0 48%,#f6e4ff 100%)}
+.card{width:100%;max-width:430px;padding:30px 22px;border:1px solid #fff;border-radius:28px;background:#ffffffdf;box-shadow:0 16px 50px #d778a526;text-align:center;backdrop-filter:blur(12px)}
+.heart{font-size:48px;animation:heartbeat 1.5s infinite}
+h1{font-size:27px;line-height:1.5;margin:12px 0;color:var(--deep)}
+.subtitle{font-size:14px;color:#b17b94;line-height:1.9;margin:0 0 24px}
+input{display:block;width:100%;min-width:0;border:2px solid #ffd1e2;border-radius:16px;padding:15px 12px;outline:none;background:#fffafd;color:#74455b;text-align:center;font-size:16px}
+input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff8fb822}
+.primary{display:block;width:100%;margin-top:14px;border:0;border-radius:16px;padding:15px;background:linear-gradient(100deg,#ff91b9,#ff6eaa);color:white;font-weight:700;box-shadow:0 7px 18px #ff8bb54d}
+#error{min-height:24px;margin-top:12px;color:var(--deep);font-size:13px}
+#birthday{background:linear-gradient(150deg,#fff2f7,#ffe0ec 48%,#f1e0ff);overflow:hidden}
+.birthday-card{position:relative;z-index:2;width:100%;max-width:470px;margin:auto;padding:28px 20px;text-align:center}
 .cake{font-size:76px;animation:bob 2.4s ease-in-out infinite;filter:drop-shadow(0 8px 12px #f99bb544)}
-
-.birthday-title{font-size:clamp(27px,7vw,38px);color:#e84d91;margin:14px 0;line-height:1.4;text-shadow:0 3px 0 #fff}
-
-.birthday-subtitle{font-size:14px;color:#b87595;margin-bottom:20px}
-
-.message{padding:24px 20px;border:1px solid #fff;border-radius:24px;background:#ffffffd9;box-shadow:0 12px 35px #d984ac26;text-align:left;font-size:16px;line-height:2;color:#88516d;white-space:pre-line}
-
+.birthday-title{font-size:clamp(28px,7.5vw,40px);line-height:1.45;color:#e84d91;margin:14px 0;text-shadow:0 3px #fff}
+.birthday-subtitle{font-size:14px;color:#b87595;margin-bottom:22px}
+.message{padding:23px 19px;border:1px solid #fff;border-radius:24px;background:#ffffffeb;box-shadow:0 12px 35px #d984ac26;text-align:left;font-size:16px;line-height:2;color:#79475f;white-space:pre-line;overflow-wrap:anywhere}
 .signature{text-align:right;color:#e9518b;margin-top:18px;font-size:14px}
-
 .decor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
-
 .float{position:absolute;bottom:-50px;opacity:0;animation:floatUp linear infinite}
-
 .confetti{position:fixed;top:-15px;width:9px;height:15px;opacity:.85;z-index:3;pointer-events:none;animation:fall linear forwards}
-
-#adult{background:radial-gradient(ellipse at top,#482039,#180b19 70%);color:#fff0f6}
-
-.adult-card{width:100%;max-width:440px;padding:25px 18px}
-
-.adult-header{padding:15px 12px;background:#230e20;border:1px solid #8b315f;border-radius:8px}
-
-.adult-label{font-size:12px;letter-spacing:4px;color:#ff8ab9}
-
-.adult-title{font-size:27px;color:#ff9ac5;margin:12px 0}
-
-.adult-panel{margin-top:16px;padding:23px 18px;border:1px solid #64304f;border-radius:12px;background:linear-gradient(160deg,#35152f,#1f1022);box-shadow:0 12px 35px #0005;line-height:2;font-size:16px;text-align:left;color:#ffe3ef;white-space:pre-line}
-
-.adult-footer{font-size:12px;color:#b47b9f;text-align:center;margin-top:18px}
-
-.back{border:1px solid #a7507d;border-radius:12px;background:#35152f;color:#ffd7e9;padding:12px;width:100%;margin-top:18px}
-
+#special{background:radial-gradient(ellipse at top,#54213f,#230d25 65%,#120914);color:#fff0f6}
+.special-card{position:relative;z-index:2;width:100%;max-width:450px;margin:auto;padding:24px 18px}
+.special-header{padding:20px 12px;background:#260e23;border:1px solid #8b315f;border-radius:12px;text-align:center}
+.special-label{font-size:11px;letter-spacing:3px;color:#ff9bc4}
+.special-title{font-size:clamp(25px,7vw,34px);color:#ff9ac5;margin:13px 0}
+.special-subtitle{font-size:12px;color:#d6a0bc}
+.special-panel{margin-top:16px;padding:23px 18px;border:1px solid #64304f;border-radius:14px;background:linear-gradient(160deg,#35152f,#1f1022);box-shadow:0 12px 35px #0005;line-height:2;font-size:16px;text-align:left;color:#ffe3ef;white-space:pre-line;overflow-wrap:anywhere}
+.special-footer{text-align:center;font-size:12px;color:#c18aaa;margin-top:18px}
+.back{border:1px solid #a7507d;border-radius:12px;background:#35152f;color:#ffd7e9;padding:13px;width:100%;margin-top:18px}
 @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-
-@keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0}10%{opacity:.85}90%{opacity:.8}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
-
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.85}90%{opacity:.8}100%{transform:translateY(-115vh) rotate(360deg);opacity:0}}
 @keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(720deg);opacity:.9}}
-
+@media(max-width:360px){.card{padding:25px 17px}.birthday-card{padding:22px 15px}.message,.special-panel{padding:19px 15px;font-size:15px;line-height:1.9}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
-
 </style>
-
 </head>
-
 <body>
 
-<section class="page" id="home">
-
+<section class="screen" id="home">
   <main class="card">
-
     <div class="heart">💗</div>
-
     <h1>你觉得你是什么？</h1>
-
-    <p class="subtitle">请认真回答哦。答对了才有生日惊喜 🎁</p>
-
+    <p class="subtitle">臭🐑，请认真回答哦！<br>答对了才有专属生日惊喜 🎁</p>
     <form id="answerForm">
-
       <input id="answer" type="text" placeholder="输入你的答案……" autocomplete="off" enterkeyhint="go" required>
-
-      <button class="submit" type="submit">揭晓我的惊喜 ✨</button>
-
+      <button class="primary" type="submit">揭晓我的惊喜 ✨</button>
       <div id="error" role="status" aria-live="polite"></div>
-
     </form>
-
   </main>
-
 </section>
 
-<section class="page hidden" id="birthday">
-
+<section class="screen hidden" id="birthday">
   <div class="decor" id="decor"></div>
-
   <main class="birthday-card">
-
     <div class="cake">🎂</div>
-
-    <h1 class="birthday-title">生日快乐，我的小布丁！</h1>
-
-    <p class="birthday-subtitle">✦ 今天全世界都要偏爱你 ✦</p>
-
+    <h1 class="birthday-title">臭🐑，生日快乐！</h1>
+    <p class="birthday-subtitle">✦ 今天是属于你的小小宇宙 ✦</p>
     <article class="message" id="sweetMessage"></article>
-
-    <div class="signature">永远偏爱你的人 💌</div>
-
-    <button class="submit" id="replay">再收一次生日祝福 🎉</button>
-
+    <div class="signature">—— 最喜欢你的那个人 💌</div>
+    <button class="primary" id="replay">再放一次生日烟花 🎉</button>
   </main>
-
 </section>
 
-<section class="page hidden" id="adult">
-
-  <main class="adult-card">
-
-    <header class="adult-header">
-
-      <div class="adult-label">♡ PRIVATE BIRTHDAY CLUB ♡</div>
-
-      <h1 class="adult-title">WELCOME, LITTLE CAT</h1>
-
-      <div style="font-size:12px;color:#d6a0bc">A SPECIAL MESSAGE JUST FOR YOU</div>
-
+<section class="screen hidden" id="special">
+  <main class="special-card">
+    <header class="special-header">
+      <div class="special-label">♡ YOUR PRIVATE BIRTHDAY PAGE ♡</div>
+      <h1 class="special-title">臭🐑的专属小房间</h1>
+      <div class="special-subtitle">18TH BIRTHDAY · ONLY FOR YOU</div>
     </header>
-
-    <article class="adult-panel" id="teaseMessage"></article>
-
-    <div class="adult-footer">18TH BIRTHDAY · MADE WITH LOVE ♡</div>
-
+    <article class="special-panel" id="specialMessage"></article>
+    <div class="special-footer">今天的臭🐑，也要被好好宠爱 ♡</div>
     <button class="back" id="backHome">返回首页</button>
-
   </main>
-
 </section>
 
 <script>
-
 const home = document.getElementById('home');
-
 const birthday = document.getElementById('birthday');
-
-const adult = document.getElementById('adult');
-
+const special = document.getElementById('special');
 const answer = document.getElementById('answer');
-
 const error = document.getElementById('error');
 
 const sweetText = `可爱的小布丁～我亲亲你！终于18岁啦～我可以陪你过18岁生日，我真的太幸福惹！🥺💗
 
-今天你就是全世界最最最可爱的小寿星！要吃好多好多蛋糕，要收到好多好多祝福，还要一直一直开心！
+臭🐑，生日快乐呀！今天要做一个无忧无虑的小寿星，什么烦恼都先放到一边。蛋糕要挑自己最喜欢的口味，礼物要拆得开开心心，愿望也要许得漂漂亮亮！
 
-我真想好好亲亲你，把所有的喜欢都偷偷塞进每一个亲亲里，再把你抱进怀里，认真地跟你说一句：生日快乐呀，我最珍贵的小宝贝。
+我真想好好亲亲你，告诉你我到底有多喜欢你。每次想到你，心里就像偷偷藏了一颗糖，明明什么都没发生，却会突然变得甜甜的。
 
-以后也要继续做那个可可爱爱、偶尔调皮、会撒娇又让人心动的小布丁。开心的时候要和我分享，委屈的时候也可以来找我。
+以后不许总是一个人偷偷不开心哦。想说的话就告诉我，想分享的小事也可以通通讲给我听。哪怕只是今天吃了什么、路上看见了一朵奇怪的小花，我也想知道。
 
-新的一岁，希望你每天都有好心情，想做的事情都能慢慢实现，遇到烦恼也总有人陪你。至于我嘛，我的愿望很简单——希望以后每一个值得纪念的生日，都能有机会陪在你身边。
+还有呀，新的一岁要继续做可爱的小布丁，继续拥有自己的小脾气、小梦想和小快乐。希望你遇到的人都温柔，努力的事情都有好结果，累了的时候能安心休息，开心的时候能尽情大笑。
 
-蛋糕要吃，礼物要拆，愿望要许！还有还有，今天的寿星必须多收一点亲亲，不接受反驳！😘
+我也想陪你收集好多好多值得纪念的日子：第一次一起完成的小计划、突然收到的小惊喜、普通日子里那些只有我们才懂的笑点。以后回头看的时候，希望这些回忆都亮晶晶的。
 
-最后再说一次：18岁生日快乐，我可爱的小布丁。谢谢你来到我的世界，让平平常常的日子也变得闪闪发光。今天、明天，还有未来的好多好多天，都要幸福呀！🎂🎀💗`;
+当然，今天最重要的任务就是接受寿星专属服务！亲亲要有，夸夸要有，偏爱也要有！谁让你是我最最最可爱的小布丁呢～😘
 
-const teaseText = `我可爱的骚骚老婆～祝你18岁生日快乐了哦～🎂💗
+最后，认真地说一句：臭🐑，18岁生日快乐！
 
-恭喜你这个小骚货终于18岁啦！今天可是你的专属生日，必须开开心心地过，蛋糕要吃，礼物要收，生日愿望也要认真许好！
+愿你新的一岁有勇气、有底气，也有很多很多的快乐。希望你一直被爱包围，也永远有追逐自己喜欢的生活的勇气。
 
-我可会把你盯得更紧的！谁让你是我可爱的小猫咪呀。哦～骚骚的小猫咪！一想到你就忍不住想逗逗你，嘻嘻。😼💕
+至于我的生日愿望嘛……希望你每天都能多开心一点，希望我们还能一起创造更多有趣的回忆。今天要快乐，明天也要快乐，以后的每一天都要好好的。
 
-不过今天寿星最大，所以准许你多撒娇一会儿，多收一点亲亲，多享受一点偏爱。
+来，许愿、吹蜡烛！🎂🎀💗`;
 
-以后也要继续做那个可爱又调皮的小猫咪，记得按时吃饭，好好睡觉，难过了就告诉我，开心了也要第一时间来跟我分享。
+const specialText = `我可爱的骚骚老婆～祝你18岁生日快乐了哦～🎂💗
 
-新的一岁，希望你每天都能笑得甜甜的，想要的惊喜一个接一个，烦恼通通跑远远。至于我嘛，当然会继续认真喜欢你、宠着你，把你的每一个小情绪都放在心上。
+哎呀呀，臭🐑居然真的18岁啦！时间怎么过得这么快，我的小猫咪都长大一岁惹！今天必须把生日过得漂漂亮亮，蛋糕吃到满足，礼物收到手软，快乐直接拉满！
 
-生日快乐呀，我最可爱的骚骚老婆～今天你最大！快把愿望许好，然后准备好收下满满的爱吧！🎁💋`;
+我可会把你盯得更紧的！谁让你是我可爱的小猫咪呀。哦～臭🐑，我看你今天就是全世界最会撒娇的小猫咪！一想到你那些可爱的小表情，我就忍不住想逗逗你，嘻嘻。😼
+
+不过呢，今天的寿星拥有特别待遇：可以理直气壮地撒娇，可以光明正大地讨夸夸，还可以把所有想要的小惊喜都列进愿望清单里！
+
+我最喜欢的就是你那些奇奇怪怪又可爱的瞬间。有时候明明是在认真讲话，却突然冒出一句让我不知道怎么接的话；有时候又可爱得让人只想多陪你一会儿。臭🐑，你真的很会让人心动欸！
+
+新的一岁，希望你每天都能吃好睡好，想做的事情都顺顺利利。遇到不开心的事情，不要把所有委屈都藏起来；觉得累了就好好休息，想偷懒的时候也不用对自己太严格。
+
+而且你要记得哦，你不需要时时刻刻都表现得很厉害，也不需要每天都开开心心。偶尔的小情绪也没关系，我希望你可以自在地做自己，做那个有点调皮、有点任性、又特别特别可爱的臭🐑。
+
+以后我们还要一起留下好多回忆！一起吃好吃的，一起分享没营养但很好笑的话题，一起期待下一次见面。就算只是很普通的一天，只要想到有你参与，好像也会变得很值得期待。
+
+至于生日礼物嘛，先把我的祝福收好了！这份祝福不限时、不退款，而且每天都可以拆开一次：打开以后，里面永远都是一句——我真的很喜欢你呀！💌
+
+好啦好啦，不继续逗你了。今天你最大，臭🐑说什么都有道理……才怪！嘻嘻，偶尔还是要让我逗一下嘛～
+
+最后再认真一次：祝我的臭🐑、我的小猫咪、我可爱的老婆，18岁生日快乐！
+
+愿你新的一岁有数不完的小惊喜，有闪闪发光的梦想，也有很多值得开怀大笑的时刻。
+
+生日蜡烛已经准备好啦，快许愿！至于愿望能不能实现嘛……先许了再说，说不定会有奇迹呢！🎂🎀💖
+
+生日快乐，我的小猫咪。今天要一直一直开心哦！`;
 
 document.getElementById('answerForm').addEventListener('submit', function(e) {
-
   e.preventDefault();
 
-  const value = answer.value.trim().replace(/[！!。.,，\s]/g, '').toLowerCase();
+  const value = answer.value.trim().replace(/[！!。.,，、\s]/g, '').toLowerCase();
 
   if (value === '1小骚货' || value === '小骚货') {
-
     home.classList.add('hidden');
-
     birthday.classList.add('hidden');
-
-    adult.classList.remove('hidden');
-
-    document.getElementById('teaseMessage').textContent = teaseText;
-
+    special.classList.remove('hidden');
+    document.getElementById('specialMessage').textContent = specialText;
     window.scrollTo(0, 0);
-
   } else if (value === '小猫咪') {
-
     home.classList.add('hidden');
-
-    adult.classList.add('hidden');
-
+    special.classList.add('hidden');
     birthday.classList.remove('hidden');
-
     document.getElementById('sweetMessage').textContent = sweetText;
-
     startBirthday();
-
     window.scrollTo(0, 0);
-
   } else {
-
     error.textContent = '哎呀，答案不对哦，再想想嘛～ 🥺';
-
     answer.focus();
-
   }
-
 });
 
 function startBirthday() {
-
   const decor = document.getElementById('decor');
-
   decor.innerHTML = '';
 
   const symbols = ['💗','💕','✨','🎀','🌸','💖','⭐','🎉'];
-
-  for (let i = 0; i < 24; i++) {
-
+  for (let i = 0; i < 26; i++) {
     const el = document.createElement('span');
-
     el.className = 'float';
-
     el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-
     el.style.left = Math.random() * 100 + '%';
-
-    el.style.animationDelay = (Math.random() * 8) + 's';
-
-    el.style.animationDuration = (7 + Math.random() * 8) + 's';
-
-    el.style.fontSize = (16 + Math.random() * 20) + 'px';
-
+    el.style.animationDelay = (Math.random() * 9) + 's';
+    el.style.animationDuration = (8 + Math.random() * 9) + 's';
+    el.style.fontSize = (16 + Math.random() * 21) + 'px';
     decor.appendChild(el);
-
   }
 
   confettiBurst();
-
 }
 
 function confettiBurst() {
-
   const colors = ['#ff79aa','#ffd166','#c9a0ff','#ffb3cf','#fff'];
-
-  for (let i = 0; i < 65; i++) {
-
+  for (let i = 0; i < 70; i++) {
     const el = document.createElement('span');
-
     el.className = 'confetti';
-
     el.style.left = Math.random() * 100 + 'vw';
-
     el.style.background = colors[Math.floor(Math.random() * colors.length)];
-
     el.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
-
     el.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
-
     el.style.animationDuration = (2.5 + Math.random() * 3) + 's';
-
     el.style.animationDelay = Math.random() * 1.2 + 's';
-
     document.body.appendChild(el);
-
     el.addEventListener('animationend', () => el.remove());
-
   }
-
 }
 
 document.getElementById('replay').addEventListener('click', confettiBurst);
 
 document.getElementById('backHome').addEventListener('click', () => {
-
-  adult.classList.add('hidden');
-
+  special.classList.add('hidden');
   birthday.classList.add('hidden');
-
   home.classList.remove('hidden');
-
   answer.value = '';
-
   error.textContent = '';
-
   window.scrollTo(0, 0);
-
 });
-
 </script>
-
 </body>
-
 </html>
