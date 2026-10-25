@@ -2,12 +2,12 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#ffc5dc">
-<title>臭🐑专属生日惊喜 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe5ef">
+<title>给我最可爱的小猫咪 🎂</title>
 <style>
 *{box-sizing:border-box}
-:root{--pink:#ff8db8;--deep:#ef4d91;--text:#79445e}
+:root{--pink:#ff8db8;--deep:#e94e91;--text:#79445e}
 html{min-height:100%;-webkit-text-size-adjust:100%}
 body{margin:0;min-height:100vh;min-height:100dvh;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:#fff0f6;overflow-x:hidden}
 button,input{font:inherit}
@@ -22,6 +22,7 @@ h1{font-size:27px;line-height:1.5;margin:12px 0;color:var(--deep)}
 input{display:block;width:100%;min-width:0;border:2px solid #ffd1e2;border-radius:16px;padding:15px 12px;outline:none;background:#fffafd;color:#74455b;text-align:center;font-size:16px}
 input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff8fb822}
 .primary{display:block;width:100%;margin-top:14px;border:0;border-radius:16px;padding:15px;background:linear-gradient(100deg,#ff91b9,#ff6eaa);color:white;font-weight:700;box-shadow:0 7px 18px #ff8bb54d}
+.primary:active{transform:scale(.98)}
 #error{min-height:24px;margin-top:12px;color:var(--deep);font-size:13px}
 #birthday{background:linear-gradient(150deg,#fff2f7,#ffe0ec 48%,#f1e0ff);overflow:hidden}
 .birthday-card{position:relative;z-index:2;width:100%;max-width:470px;margin:auto;padding:28px 20px;text-align:center}
@@ -56,7 +57,7 @@ input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff8fb822}
   <main class="card">
     <div class="heart">💗</div>
     <h1>你觉得你是什么？</h1>
-    <p class="subtitle">臭🐑，请认真回答哦！<br>答对了才有专属生日惊喜 🎁</p>
+    <p class="subtitle">请认真回答哦！<br>答对了才有专属生日惊喜 🎁</p>
     <form id="answerForm">
       <input id="answer" type="text" placeholder="输入你的答案……" autocomplete="off" enterkeyhint="go" required>
       <button class="primary" type="submit">揭晓我的惊喜 ✨</button>
@@ -69,10 +70,10 @@ input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff8fb822}
   <div class="decor" id="decor"></div>
   <main class="birthday-card">
     <div class="cake">🎂</div>
-    <h1 class="birthday-title">臭🐑，生日快乐！</h1>
+    <h1 class="birthday-title">生日快乐，我的小布丁！</h1>
     <p class="birthday-subtitle">✦ 今天是属于你的小小宇宙 ✦</p>
     <article class="message" id="sweetMessage"></article>
-    <div class="signature">—— 最喜欢你的那个人 💌</div>
+    <div class="signature">—— 臭🐑 💌</div>
     <button class="primary" id="replay">再放一次生日烟花 🎉</button>
   </main>
 </section>
@@ -81,11 +82,11 @@ input:focus{border-color:var(--pink);box-shadow:0 0 0 4px #ff8fb822}
   <main class="special-card">
     <header class="special-header">
       <div class="special-label">♡ YOUR PRIVATE BIRTHDAY PAGE ♡</div>
-      <h1 class="special-title">臭🐑的专属小房间</h1>
+      <h1 class="special-title">小猫咪的专属小房间</h1>
       <div class="special-subtitle">18TH BIRTHDAY · ONLY FOR YOU</div>
     </header>
     <article class="special-panel" id="specialMessage"></article>
-    <div class="special-footer">今天的臭🐑，也要被好好宠爱 ♡</div>
+    <div class="special-footer">—— 臭🐑 的专属生日祝福 ♡</div>
     <button class="back" id="backHome">返回首页</button>
   </main>
 </section>
@@ -99,53 +100,57 @@ const error = document.getElementById('error');
 
 const sweetText = `可爱的小布丁～我亲亲你！终于18岁啦～我可以陪你过18岁生日，我真的太幸福惹！🥺💗
 
-臭🐑，生日快乐呀！今天要做一个无忧无虑的小寿星，什么烦恼都先放到一边。蛋糕要挑自己最喜欢的口味，礼物要拆得开开心心，愿望也要许得漂漂亮亮！
+今天你就是全世界最最最可爱的小寿星！蛋糕要挑自己最喜欢的口味，礼物要拆得开开心心，愿望也要许得漂漂亮亮！
 
 我真想好好亲亲你，告诉你我到底有多喜欢你。每次想到你，心里就像偷偷藏了一颗糖，明明什么都没发生，却会突然变得甜甜的。
 
 以后不许总是一个人偷偷不开心哦。想说的话就告诉我，想分享的小事也可以通通讲给我听。哪怕只是今天吃了什么、路上看见了一朵奇怪的小花，我也想知道。
 
-还有呀，新的一岁要继续做可爱的小布丁，继续拥有自己的小脾气、小梦想和小快乐。希望你遇到的人都温柔，努力的事情都有好结果，累了的时候能安心休息，开心的时候能尽情大笑。
+新的一岁，要继续做可可爱爱的小布丁，继续拥有自己的小脾气、小梦想和小快乐。希望你遇到的人都温柔，努力的事情都有好结果，累了的时候能安心休息，开心的时候能尽情大笑。
 
-我也想陪你收集好多好多值得纪念的日子：第一次一起完成的小计划、突然收到的小惊喜、普通日子里那些只有我们才懂的笑点。以后回头看的时候，希望这些回忆都亮晶晶的。
+我也想陪你收集好多好多值得纪念的日子：一起吃到好吃的东西，一起完成小计划，一起分享那些只有我们才懂的笑点。以后回头看的时候，希望这些回忆都亮晶晶的。
 
 当然，今天最重要的任务就是接受寿星专属服务！亲亲要有，夸夸要有，偏爱也要有！谁让你是我最最最可爱的小布丁呢～😘
 
-最后，认真地说一句：臭🐑，18岁生日快乐！
+最后，认真地说一句：生日快乐呀，我最珍贵的小宝贝。
 
-愿你新的一岁有勇气、有底气，也有很多很多的快乐。希望你一直被爱包围，也永远有追逐自己喜欢的生活的勇气。
+希望你新的一岁有勇气、有底气，也有很多很多的快乐。希望你一直被爱包围，也永远有追逐自己喜欢的生活的勇气。
 
-至于我的生日愿望嘛……希望你每天都能多开心一点，希望我们还能一起创造更多有趣的回忆。今天要快乐，明天也要快乐，以后的每一天都要好好的。
+至于我的生日愿望嘛……希望你每天都能多开心一点，希望我们还能一起创造更多有趣的回忆。
 
-来，许愿、吹蜡烛！🎂🎀💗`;
+来，许愿、吹蜡烛！记得把最大的那块蛋糕留给自己喜欢的口味哦！🎂🎀💗
+
+—— 永远偏爱你的人：臭🐑`;
 
 const specialText = `我可爱的骚骚老婆～祝你18岁生日快乐了哦～🎂💗
 
-哎呀呀，臭🐑居然真的18岁啦！时间怎么过得这么快，我的小猫咪都长大一岁惹！今天必须把生日过得漂漂亮亮，蛋糕吃到满足，礼物收到手软，快乐直接拉满！
+恭喜你这个小骚货终于18岁啦！今天可是你的专属生日，必须开开心心地过，蛋糕要吃，礼物要收，生日愿望也要认真许好！
 
-我可会把你盯得更紧的！谁让你是我可爱的小猫咪呀。哦～臭🐑，我看你今天就是全世界最会撒娇的小猫咪！一想到你那些可爱的小表情，我就忍不住想逗逗你，嘻嘻。😼
+我可会把你盯得更紧的！我可爱的小猫咪呀。哦～骚骚的小猫咪！嘻嘻，一想到你那些可爱的小表情，我就忍不住想逗逗你。😼💕
 
 不过呢，今天的寿星拥有特别待遇：可以理直气壮地撒娇，可以光明正大地讨夸夸，还可以把所有想要的小惊喜都列进愿望清单里！
 
-我最喜欢的就是你那些奇奇怪怪又可爱的瞬间。有时候明明是在认真讲话，却突然冒出一句让我不知道怎么接的话；有时候又可爱得让人只想多陪你一会儿。臭🐑，你真的很会让人心动欸！
+我最喜欢的就是你那些奇奇怪怪又可爱的瞬间。有时候明明是在认真讲话，却突然冒出一句让我不知道怎么接的话；有时候又可爱得让人只想多陪你一会儿。你真的很会让人心动欸！
 
 新的一岁，希望你每天都能吃好睡好，想做的事情都顺顺利利。遇到不开心的事情，不要把所有委屈都藏起来；觉得累了就好好休息，想偷懒的时候也不用对自己太严格。
 
-而且你要记得哦，你不需要时时刻刻都表现得很厉害，也不需要每天都开开心心。偶尔的小情绪也没关系，我希望你可以自在地做自己，做那个有点调皮、有点任性、又特别特别可爱的臭🐑。
+而且你要记得哦，你不需要时时刻刻都表现得很厉害，也不需要每天都开开心心。偶尔的小情绪也没关系，我希望你可以自在地做自己，做那个有点调皮、有点任性、又特别特别可爱的你。
 
 以后我们还要一起留下好多回忆！一起吃好吃的，一起分享没营养但很好笑的话题，一起期待下一次见面。就算只是很普通的一天，只要想到有你参与，好像也会变得很值得期待。
 
 至于生日礼物嘛，先把我的祝福收好了！这份祝福不限时、不退款，而且每天都可以拆开一次：打开以后，里面永远都是一句——我真的很喜欢你呀！💌
 
-好啦好啦，不继续逗你了。今天你最大，臭🐑说什么都有道理……才怪！嘻嘻，偶尔还是要让我逗一下嘛～
+好啦好啦，不继续逗你了。今天你最大，寿星说什么都有道理……才怪！嘻嘻，偶尔还是要让我逗一下嘛～
 
-最后再认真一次：祝我的臭🐑、我的小猫咪、我可爱的老婆，18岁生日快乐！
+最后再认真一次：祝我最可爱的骚骚老婆、我的小猫咪，18岁生日快乐！
 
 愿你新的一岁有数不完的小惊喜，有闪闪发光的梦想，也有很多值得开怀大笑的时刻。
 
-生日蜡烛已经准备好啦，快许愿！至于愿望能不能实现嘛……先许了再说，说不定会有奇迹呢！🎂🎀💖
+生日蜡烛已经准备好啦，快许愿！希望你许下的愿望都能慢慢实现，也希望未来的每一天都能有让你开心的小事。
 
-生日快乐，我的小猫咪。今天要一直一直开心哦！`;
+生日快乐，我的小猫咪。今天要一直一直开心哦！🎂🎀💖
+
+—— 你的臭🐑`;
 
 document.getElementById('answerForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -174,8 +179,8 @@ document.getElementById('answerForm').addEventListener('submit', function(e) {
 function startBirthday() {
   const decor = document.getElementById('decor');
   decor.innerHTML = '';
-
   const symbols = ['💗','💕','✨','🎀','🌸','💖','⭐','🎉'];
+
   for (let i = 0; i < 26; i++) {
     const el = document.createElement('span');
     el.className = 'float';
@@ -186,12 +191,12 @@ function startBirthday() {
     el.style.fontSize = (16 + Math.random() * 21) + 'px';
     decor.appendChild(el);
   }
-
   confettiBurst();
 }
 
 function confettiBurst() {
   const colors = ['#ff79aa','#ffd166','#c9a0ff','#ffb3cf','#fff'];
+
   for (let i = 0; i < 70; i++) {
     const el = document.createElement('span');
     el.className = 'confetti';
